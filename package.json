@@ -1,5 +1,10 @@
 {
+  "dependencies": {
+    "bootstrap-sass": "^3.3.5",
+    "font-awesome": "^4.4.0"
+  },
   "devDependencies": {
-    "gulp": "^3.9.0"
+    "gulp": "^3.9.0",
+    "gulp-size": "^2.0.0"
   }
 }
