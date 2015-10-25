@@ -1,7 +1,7 @@
 {
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yas-okadatech/sample_gulp.git"
+    "url": "https://github.com/yas-okadatech/sample_gulp.git"
   },
   "license": "MIT",
   "dependencies": {
@@ -11,6 +11,8 @@
   "devDependencies": {
     "babel": "^5.8.29",
     "gulp": "^3.9.0",
-    "gulp-size": "^2.0.0"
+    "gulp-sass": "^2.0.4",
+    "gulp-size": "^2.0.0",
+    "gulp-sourcemaps": "^1.6.0"
   }
 }

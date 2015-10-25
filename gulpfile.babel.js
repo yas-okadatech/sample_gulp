@@ -1,11 +1,16 @@
 import gulp from 'gulp';
 
 import size from'gulp-size';
+import sourcemaps from 'gulp-sourcemaps';
+import sass from 'gulp-sass';
 
 let dirNode = './node_modules';
 
 let dirSrc = './src';
 let dirDest = './dest';
+
+let dirSrcStyle = dirSrc + '/style';
+let dirDestStyle = dirDest + '/style';
 
 gulp.task('assets', ['assets:font-awesome', 'assets:bootstrap'], () => {
   gulp.src([dirSrc + '/assets/**/*'], {base: dirSrc + '/assets/'})
@@ -25,6 +30,22 @@ gulp.task('assets:bootstrap', () => {
     .pipe(gulp.dest(dirDest));
 });
 
-gulp.task('default', function () {
+gulp.task('sass', () => {
+  return gulp.src(dirSrcStyle + '/app.scss')
+    .pipe(sourcemaps.init())
+    .pipe(sass({
+      outputStyle: 'compressed',
+      includePaths: [
+        dirSrcStyle,
+        dirNode + '/bootstrap-sass/assets/stylesheets',
+        dirNode + '/font-awesome/scss/'
+      ]
+    }).on('error', sass.logError))
+    .pipe(sourcemaps.write('./'))
+    .pipe(gulp.dest(dirDestStyle))
+    .pipe(size());
+});
+
+gulp.task('default', () => {
   // default task
 });
